@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up page</title>
+        
+        <link href="sign.css" type="text/css" rel="stylesheet">
+        <center>
+        <!--<h1 align="center" style="color:royalblue; font-size:50px"><u>Account</u></h1>-->
+        <img src="acc.PNG" align="center" width="400px" />
+    </center>
+    </head>
+    <body background="acc10.jpg">
+            <div id="base">
+        <h1 align="center" style="color:royalblue">Create your account</h1>
+        <center>
+                <img src="profile.png" align="center" width="100px"  />
+                <br>
+                <br>
+            <form>
+                <div id="firstlast">
+                  
+                    <input type="text" name="firstname" placeholder="Firstname" required>
+                    <input type="text" name="lastname" placeholder="Lastname" required>
+                </div>
+                <br>
+                <div id="mailbox">
+                    <legend><label>Create Mail ID</label></legend>
+                    <input type="email" id="emailid" placeholder="Username@mail.com" required>
+                </div>
+                <br>
+                <div id="password">
+                    <input type="password" id="pass" placeholder="Password">
+                    <input type="password" id="conpass" placeholder="Confirm Password">
+                </div>
+                <br>
+                <div id="mobile">
+                        <legend><label>Mobile Number</label></legend>
+                    <input type="tel" pattern="[0-9]{10}" placeholder="+91">
+                </div>
+                <br>
+                <div id="sub">
+                    <input style="color: royalblue" type="button" onclick="proceednext()" value="NEXT">&emsp;
+                    <input style="color: royalblue" type="reset" value="RESET">
+                </div>
+                
+            </form>
+            <script>
+                
+                function proceednext()
+                {
+                var user,pass1,pass2;
+                user=document.getElementById("emailid").value;
+                pass1=document.getElementById("pass").value;
+                pass2=document.getElementById("conpass").value;
+                if(pass1==pass2)
+                {
+                    location.replace("nextpage.html");
+                }
+                else{
+                    alert("passwords do not match");
+                }
+            }
+
+            </script>
+        </center>
+        </div>
+
+        
+    </body>
+</html> 

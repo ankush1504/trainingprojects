@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up first page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="sign.css" type="text/css" rel="stylesheet">
+        <center>
+        <!--<h1 align="center" style="color:royalblue; font-size:50px"><u>Account</u></h1>-->
+        <img src="acc.PNG" align="center" width="400px" />
+        <br>
+        <h1 style="color: royalblue">Sign in</h1>
+    </center>
+    </head>
+    <body>
+        <div id="base">
+            <center>
+                <form>
+                        <div id="mailbox">
+                                <label>Mail ID:</label>
+                                <input type="email" id="emailid" placeholder="Username@mail.com" required>
+                            </div>
+                            <br>
+                            <div id="password">
+                                    <label>Password:</label>
+                                <input type="password" id="pass" placeholder="Password" required>
+                            </div>
+                            <br>
+                            <button style="color: royalblue" type="button" onclick="proceednext()" class="btn btn-default">GO</button>
+                            <br>
+                            <br>
+                            <p style="color: royalblue">Doesn't have an account?</p><a style="color: royalblue" href="signup.html">Sign up</a>
+                </form>
+                <script>
+                    
+                        function proceednext()
+                        {
+                        var user,pass1;
+                        user=document.getElementById("emailid").value;
+                        pass1=document.getElementById("pass").value;
+                        if((user=="system")&&(pass1=="admin"))
+                        {
+                            location.replace("finalpage.html");
+                        }
+                        else{
+                            alert("invalid username or password");
+                        }
+                    }
+        
+                    </script>
+                <img src="acc4.png" align="center" width="200px" />
+            </center>
+        </div>
+    </body>
+    </html>
