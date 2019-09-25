@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>next page</title>
+    <link href="sign.css" type="text/css" rel="stylesheet">
+    <center>
+    <img src="acc.PNG" align="center" width="200px" />
+</center>
+    </head>
+    <body background="acc11.jpg">
+        <center>
+        <div id="base">
+        <h2 style="color:royalblue">More Information</h2>
+        <br>
+        <form method="GET" action="finalpage.html">
+        <div>
+            <legend><label>Date of Birth</label></legend>
+            <input type="date" name="dob" required>
+            <br>
+            <br>
+            <label>Age</label>
+            <br>
+            <input type="number" name="age" min="10" max="120" required>
+            <br>
+        </div>
+        <br>
+        <div>
+                <legend><label>Country</label></legend>
+                <select>
+                        <option value="INDIA">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="GERMANY">Germany</option>
+                </select>
+        </div>
+        <br>
+        <legend><label>Gender</label></legend>
+        <input type="text" name="gender" list="g1" required>
+        <datalist id="g1">
+                        <option value="Male"/>
+                        <option value="Female"/>
+                        <option value="Other"/>
+                    </datalist>
+                    <br>
+                    <br>
+                    <div id="sub1">
+                            <input style="color: royalblue" type="submit" value="SUBMIT">&emsp;
+                            <input style="color: royalblue" type="reset" value="RESET">
+                        </div>
+        </div>
+    </form>
+    </center>
+    </body>
+</html>
