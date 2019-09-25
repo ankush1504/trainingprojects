@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h3>Javascript table</h3>
+
+<table id="myTable" cellspacing=15 cellpadding=15 style="color: brown; border:5px solid crimson">
+  <tr>
+    <td>cell 1</td>
+    <td>cell 2</td>
+  </tr>
+  <tr>
+    <td>cell 3</td>
+    <td>cell 4</td>
+  </tr>
+  <tr>
+        <td>cell 5</td>
+        <td>cell 6</td>
+      </tr>
+</table>
+
+<p>Click the button to remove the first row in the table.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTable");
+  x.deleteRow(0);
+}
+</script>
+
+</body>
+</html>
