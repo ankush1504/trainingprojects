@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>mock assignment form</title>
+    <script src="assessmentjavascript.js"></script>
+    <title>assignment form</title>
     <link href="mockstyle.css" type="text/css" rel="stylesheet">
     <script src="jquery-3.4.1.min.js"></script>
 </head>
@@ -24,6 +25,7 @@
                 <input type="text" id="userid" class="form-control" placeholder="UserId" required />
                 <small id="helpId" class="text-muted">Required and must be of length 5 to 12</small>
             </div>
+
             <div id="passconpass" class="form-group">
                 <legend><label>Password:</label></legend>
                 <input type="password" class="form-control" id="pass" placeholder="Password""
@@ -31,6 +33,7 @@
                 <input type="password" id="conpass" class="form-control" placeholder="Confirm Password">
                 <small id="helpId" class="text-muted">Required and must be of length 5 to 12</small>
             </div>
+
             <div id="username" class="form-group">
                 <legend><label for="name">Name:</label></legend>
                 <input type="text" id="name" class="form-control" placeholder="Name" required />
@@ -45,7 +48,7 @@
 
             <div id="country" class="form-group">
                 <legend><label>Country:</label></legend>
-                <select class="form-control" placeholder="Please select a country" required>
+                <select class="form-control">
                     <option value="INDIA">India</option>
                     <option value="USA">USA</option>
                     <option value="UK">UK</option>
@@ -107,12 +110,9 @@
                     onclick="proceednext()">
             </div>
 
-
-
-
         </form>
     </div>
-    <script src="assessmentjavascript.js"></script>
+   
 
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
