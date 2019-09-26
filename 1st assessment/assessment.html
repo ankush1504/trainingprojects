@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>mock assignment form</title>
+    <link href="mockstyle.css" type="text/css" rel="stylesheet">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div id="base">
+        <h1>Registration Form</h1>
+        <form class="form-group">
+            <br>
+
+            <div id="userid1" class="form-group">
+                <legend><label for="userid">User id:</label></legend>
+                <input type="text" id="userid" class="form-control" placeholder="UserId" required />
+                <small id="helpId" class="text-muted">Required and must be of length 5 to 12</small>
+            </div>
+            <div id="passconpass" class="form-group">
+                <legend><label>Password:</label></legend>
+                <input type="password" class="form-control" id="pass" placeholder="Password""
+                    title=" Required and must be of length 7 to 12">
+                <input type="password" id="conpass" class="form-control" placeholder="Confirm Password">
+                <small id="helpId" class="text-muted">Required and must be of length 5 to 12</small>
+            </div>
+            <div id="username" class="form-group">
+                <legend><label for="name">Name:</label></legend>
+                <input type="text" id="name" class="form-control" placeholder="Name" required />
+                <small id="helpId" class="text-muted">Required and alphabets only</small>
+            </div>
+
+            <div id="address" class="form-group">
+                <legend><label for="address">Address:</label></legend>
+                <input type="text" id="address" class="form-control" placeholder="Address" />
+                <small id="helpId" class="text-muted">Optional</small>
+            </div>
+
+            <div id="country" class="form-group">
+                <legend><label>Country:</label></legend>
+                <select class="form-control" placeholder="Please select a country" required>
+                    <option value="INDIA">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="GERMANY">Germany</option>
+                </select>
+                <small id="helpId" class="text-muted">Required. Must select a country</small>
+            </div>
+
+            <div id="zipcode" class="form-group">
+                <legend><label for="zcode">Zip Code:</label></legend>
+                <input type="text" id="zcode" class="form-control" placeholder="zipcode" required />
+                <small id="helpId" class="text-muted">Required. Must be numeric only</small>
+            </div>
+
+            <div id="mail" class="form-group">
+                <legend><label for="emailid">E-Mail ID:</label></legend>
+                <input type="text" id="emailid" class="form-control" placeholder="Username@mail.com" required>
+                <small id="helpId" class="text-muted">Required. Must be a valid email</small>
+            </div>
+
+            <div id="sex1" class="form-group">
+                <legend><label for="sex">Sex:</label></legend>
+                <input type="radio" name="sex" checked>Male
+                <input type="radio" name="sex" >Female
+                <input type="radio" name="sex" >Other
+                <br>
+                <small id="helpId" class="text-muted">Required</small>
+            </div>
+
+            <div id="lang" class="form-group">
+                <legend><label>Language:</label></legend>
+                <input type="checkbox" class="lang1" checked>English
+                <input type="checkbox" class="lang1">Non English
+                <br>
+                <small id="helpId" class="text-muted">Required</small>
+            </div>
+            <script>
+                $('.lang1').on('change', function () {
+                    $('.lang1').not(this).prop('checked', false);
+                });
+            </script>
+
+            <div id="dateofb" class="form-group">
+                <legend><label for="doc">Date of Birth:</label></legend>
+                <input type="date" name="dob" class="form-control" id="dob" required>
+                <small id="helpId" class="text-muted">Required</small>
+            </div>
+
+            <div id="about" class="form-group">
+                <legend><label>About:</label></legend>
+                <textarea class="form-control" required></textarea>
+                <small id="helpId" class="text-muted">Optional</small>
+
+            </div>
+
+            <br>
+            <div id="subres1" class="form-group">
+                <input id="subres" type="button" class="form-control" value="SUBMIT"
+                    onclick="proceednext()">
+            </div>
+
+
+
+
+        </form>
+    </div>
+    <script src="assessmentjavascript.js"></script>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

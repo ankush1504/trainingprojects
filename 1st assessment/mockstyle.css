@@ -1,0 +1,28 @@
+#base{
+    
+    margin: 0 auto;
+    padding: 12px;
+    width:700px;
+    background-color: aliceblue;
+    border: 1px solid royalblue;
+    border-radius: 10px;
+    
+    /* align-content: center; */
+    
+}
+
+label{
+    color: royalblue;
+}
+h1{
+    color: royalblue;
+    font-family: 'Times New Roman', Times, serif
+}
+
+#subres
+{
+border-radius: 20px;
+color:white; 
+background-color: royalblue;
+ width:250px;
+}
