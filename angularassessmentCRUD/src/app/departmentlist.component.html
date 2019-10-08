@@ -1,0 +1,54 @@
+<div class="container">
+    <table class="table table-hover table-responsive table-success">
+      <thead>
+        <tr>
+          <th>DEPARTMENT ID</th>
+          <th>NAME</th>
+          <th>GROUP NAME</th>
+          <th>MODIFIED DATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depart of depslist;let i=index">
+          <td>{{depart.departmentid}}</td>
+          <td>{{depart.name | titlecase}}</td>
+          <td>{{depart.groupname }}</td>
+          <td>{{depart.modifieddate | date:'dd/MM/yyyy'}}</td>
+          <td><button id="edit" (click)="edit(i)" style="background: darkgreen;color:white">EDIT</button></td>
+          <td><button id="delete" (click)="deletedepartment(i)" style="background: darkgreen;color:white">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+  <div id="updatediv" *ngIf="updatediv">
+  <H1 style="color: darkgreen; font-family:'Times New Roman', Times, serif">UPDATE DEPARTMENT</H1>
+<form class="form-group" #empform="ngForm" (ngSubmit)="edit()">
+<!-- <form class="form-group"> -->
+    <div class="form-group">
+        <label for="id">Department ID</label>
+        <input type="text" name="id" class="form-control" [(ngModel)]="dep.departmentid">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Department Name</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="dep.name">
+    </div>
+
+    <div class="form-group">
+        <label for="groupname">Group Name</label>
+        <input type="text" name="groupname" class="form-control" [(ngModel)]="dep.groupname">
+    </div>
+
+    <div class="form-group">
+        <label for="depdate">Modified Date</label>
+        <input type="date" name="depdate" [(ngModel)]="dep.modifieddate">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" id="sub" class="form-control" value="SUBMIT" style="background: darkgreen;color:white">
+</div>
+</form>
+</div>

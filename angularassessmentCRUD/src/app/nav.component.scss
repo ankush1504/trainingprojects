@@ -1,0 +1,30 @@
+header{
+    background:lightgreen;
+    height: 70px;
+    .logo{
+        font-weight: bold;
+        margin-right: 200px;
+    }
+    nav{
+        justify-content:center;
+        ul{
+            list-style-type: none;
+            margin:0;
+            padding: 0;
+            li{
+                float: left;
+                a{
+                    padding: 1.5em;
+                    text-transform:uppercase;
+                    font-size: 1.5em;
+                    color: darkgreen;
+                    float: center;
+                    
+                    &:hover{
+                        background:white;
+                    }
+                }
+            }
+        }
+    }
+}
