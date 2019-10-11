@@ -1,0 +1,36 @@
+--1--
+select account_number,customer_master.customer_number,firstname,lastname,account_master.account_opening_date from customer_master
+inner join account_master on customer_master.customer_number=account_master.customer_number order by account_number
+
+--2--
+select count(customer_number) as cust_count from customer_master where customer_city='DELHI'
+
+--3--
+select account_master.customer_number,firstname,account_number from customer_master
+inner join account_master on
+account_master.customer_number=customer_master.customer_number
+where DAY(account_opening_date)>'15'
+
+--4--
+select account_master.customer_number,firstname,account_number from customer_master
+inner join account_master on
+account_master.customer_number=customer_master.customer_number
+where account_status='TERMINATED'
+order by customer_number,account_number
+
+--5--
+select count(transaction_type) as trans_count,
+(select count(transaction_type) from transaction_details where transaction_type='DEPOSIT' and account_number='A00001') as deposits,
+(select count(transaction_type) from transaction_details where transaction_type='WITHDRAWAL' and account_number='A00001') as withdrawals
+ from transaction_details
+where account_number='A00001'
+
+--6--
+select count(customer_number) as Count_Customer from account_master where account_status!='ACTIVE'
+
+--7--
+select account_master.account_number,transaction_amount as Deposit_Amount,account_master.opening_balance
+from transaction_details inner join account_master 
+on transaction_details.account_number=account_master.account_number
+where transaction_type='DEPOSIT' 
+order by account_number
