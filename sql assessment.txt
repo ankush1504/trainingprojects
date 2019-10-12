@@ -19,14 +19,18 @@ where account_status='TERMINATED'
 order by customer_number,account_number
 
 --5--
-select count(transaction_type) as trans_count,
-(select count(transaction_type) from transaction_details where transaction_type='DEPOSIT' and account_number='A00001') as deposits,
-(select count(transaction_type) from transaction_details where transaction_type='WITHDRAWAL' and account_number='A00001') as withdrawals
- from transaction_details
-where account_number='A00001'
+
+SELECT transaction_type,count(transaction_number) as Trans_Count
+FROM account_master INNER JOIN transaction_details
+ON account_master.account_number=transaction_details.account_number
+WHERE customer_number like '%1'
+GROUP BY transaction_type
+ORDER BY transaction_type
 
 --6--
-select count(customer_number) as Count_Customer from account_master where account_status!='ACTIVE'
+SELECT count(customer_number) as Count_Customer
+FROM customer_master
+WHERE customer_number NOT IN (SELECT customer_number FROM account_master)
 
 --7--
 select account_master.account_number,transaction_amount as Deposit_Amount,account_master.opening_balance
