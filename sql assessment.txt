@@ -33,8 +33,9 @@ FROM customer_master
 WHERE customer_number NOT IN (SELECT customer_number FROM account_master)
 
 --7--
-select account_master.account_number,transaction_amount as Deposit_Amount,account_master.opening_balance
+select transaction_details.account_number,account_master.opening_balance+sum(transaction_amount) as Deposit_Amount
 from transaction_details inner join account_master 
 on transaction_details.account_number=account_master.account_number
-where transaction_type='DEPOSIT' 
+where transaction_type='DEPOSIT'
+group by transaction_details.account_number,account_master.opening_balance 
 order by account_number
