@@ -1,0 +1,6 @@
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\bin\Debug\BankingTransaction.exe.config
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\bin\Debug\BankingTransaction.exe
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\bin\Debug\BankingTransaction.pdb
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\obj\Debug\BankingTransaction.exe
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\obj\Debug\BankingTransaction.pdb
+C:\Users\arelekar\Documents\c# .net demos\BankingTransaction\BankingTransaction\obj\Debug\BankingTransaction.csprojAssemblyReference.cache
