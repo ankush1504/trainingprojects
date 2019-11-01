@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ADOassessmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ADOassessmentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Suppliers" EntityType="ADOassessmentModel.Supplier" />
+    <EntitySet Name="Customers" EntityType="ADOassessmentModel.Customer" />
+    <EntitySet Name="Products" EntityType="ADOassessmentModel.Product" />
+    <AssociationSet Name="SupplierCustomer" Association="ADOassessmentModel.SupplierCustomer">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSupplier" Association="ADOassessmentModel.ProductSupplier">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCustomer1" Association="ADOassessmentModel.ProductCustomer1">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Location" Type="String" Nullable="false" />
+    <Property Name="Price" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="ADOassessmentModel.SupplierCustomer" FromRole="Supplier" ToRole="Customer" />
+    <NavigationProperty Name="Product" Relationship="ADOassessmentModel.ProductSupplier" FromRole="Supplier" ToRole="Product" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Number_products" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Supplier" Relationship="ADOassessmentModel.SupplierCustomer" FromRole="Customer" ToRole="Supplier" />
+    <Property Name="SupplierId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="ADOassessmentModel.ProductCustomer1" FromRole="Customer" ToRole="Product" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="Suppliers" Relationship="ADOassessmentModel.ProductSupplier" FromRole="Product" ToRole="Supplier" />
+    <NavigationProperty Name="Customers1" Relationship="ADOassessmentModel.ProductCustomer1" FromRole="Product" ToRole="Customer" />
+  </EntityType>
+  <Association Name="SupplierCustomer">
+    <End Type="ADOassessmentModel.Supplier" Role="Supplier" Multiplicity="1" />
+    <End Type="ADOassessmentModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSupplier">
+    <End Type="ADOassessmentModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ADOassessmentModel.Supplier" Role="Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCustomer1">
+    <End Type="ADOassessmentModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ADOassessmentModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

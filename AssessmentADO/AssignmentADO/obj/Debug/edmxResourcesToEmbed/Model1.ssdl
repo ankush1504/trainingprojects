@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ADOassessmentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ADOassessmentModelStoreContainer">
+    <EntitySet Name="Suppliers" EntityType="ADOassessmentModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="ADOassessmentModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="ADOassessmentModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SupplierCustomer" Association="ADOassessmentModel.Store.SupplierCustomer">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSupplier" Association="ADOassessmentModel.Store.ProductSupplier">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCustomer1" Association="ADOassessmentModel.Store.ProductCustomer1">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Number_products" Type="int" Nullable="false" />
+    <Property Name="SupplierId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="SupplierCustomer">
+    <End Role="Supplier" Type="ADOassessmentModel.Store.Suppliers" Multiplicity="1" />
+    <End Role="Customer" Type="ADOassessmentModel.Store.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSupplier">
+    <End Role="Product" Type="ADOassessmentModel.Store.Products" Multiplicity="1" />
+    <End Role="Supplier" Type="ADOassessmentModel.Store.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCustomer1">
+    <End Role="Product" Type="ADOassessmentModel.Store.Products" Multiplicity="1" />
+    <End Role="Customer" Type="ADOassessmentModel.Store.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
