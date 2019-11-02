@@ -18,7 +18,7 @@ namespace AssignmentADO
             int exit = 0;
             while(true)
             {
-                Console.WriteLine("enter options:\n 1.To Insert\t 2.To Read\t 3.To Exit");
+                Console.WriteLine("enter options:\n 1.To Insert\t 2.To Read\t 3.To Update Customer Table\t 4.To Delete Rows in Customer\t 5.To Exit");
                 int choice = int.Parse(Console.ReadLine());
                 switch(choice)
                 {
@@ -56,7 +56,11 @@ namespace AssignmentADO
                                 break;
                         }
                         break;
-                    case 3: exit = 1;
+                    case 3:prog.updateCustomer();
+                        break;
+                    case 4:prog.deletecustomer();
+                        break;
+                    case 5: exit = 1;
                         break;
                     default: Console.WriteLine("invalid choice");
                         break;
@@ -92,12 +96,22 @@ namespace AssignmentADO
             cmd.CommandText = "insert into Customers values(@Name,@Product,@SupplierId,@ProductId)";
             cmd.Connection = con;
             con.Open();
-            int rowcount = cmd.ExecuteNonQuery();
-            if (rowcount > 0)
+            try
             {
-                Console.WriteLine("inserted successfully");
+                int rowcount = cmd.ExecuteNonQuery();
+                if (rowcount > 0)
+                {
+                    Console.WriteLine("inserted successfully");
+                }
+                con.Close();
+
             }
-            con.Close();
+            catch (Exception e)
+            {
+
+                Console.WriteLine("error:"+e.Message);
+            }
+            
          
         }
 
@@ -197,6 +211,98 @@ namespace AssignmentADO
                 Console.WriteLine($"{rdr[0]}\t\t{rdr[1]}");
             }
             con.Close();
+        }
+
+        public void updateCustomer()
+        {
+            Console.WriteLine("enter the id to update");
+            Customer cus = new Customer();
+            cus.Id = int.Parse(Console.ReadLine());
+ 
+            con = new SqlConnection();
+            con.ConnectionString = @"data source=IN5CG9214Y0Z\MSSQLSERVER01;database=ADOassessment;integrated security=true";
+            cmd = new SqlCommand();
+            cmd.Parameters.AddWithValue("@Id", cus.Id);
+
+            cmd.CommandText = "select Id from Customers where Id=@Id";
+            // cmd.CommandText = "update tblemployee set Name=@Name,Gender=@Gender,Location=@Location,Salary=@Salary where Id=@Id ";
+            cmd.Connection = con;
+            con.Open();
+            object rowcount = cmd.ExecuteScalar();
+
+            try
+            {
+                int updateid = (int)rowcount;
+                if (cus.Id == updateid)
+                {
+                    Console.WriteLine("id exists");
+                    Console.WriteLine("enter the name,Number of Products,Supplier Id and Product Id");
+                    cus.Name = Console.ReadLine();
+                    cus.Number_products = int.Parse(Console.ReadLine());
+                    cus.SupplierId = int.Parse(Console.ReadLine());
+                    cus.ProductId = int.Parse(Console.ReadLine());
+                    cmd.Parameters.AddWithValue("@Name", cus.Name);
+                    cmd.Parameters.AddWithValue("@Product", cus.Number_products);
+                    cmd.Parameters.AddWithValue("@SupplierId", cus.SupplierId);
+                    cmd.Parameters.AddWithValue("@ProductId", cus.ProductId);
+                    cmd.CommandText = "update Customers set Name=@Name,Number_products=@Product,SupplierId=@SupplierId,ProductId=@ProductId where Id=@Id ";
+                    int row = cmd.ExecuteNonQuery();
+                    if (row > 0)
+                    {
+                        Console.WriteLine("updated successfully");
+                    }
+
+                    con.Close();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("id does not exist:" + e.Message);
+
+            }
+        }
+
+        public void deletecustomer()
+        {
+            Console.WriteLine("enter the id of the row to delete");
+            Customer cus = new Customer();
+            cmd = new SqlCommand();
+            cus.Id = int.Parse(Console.ReadLine());
+            cmd.Parameters.AddWithValue("@Id", cus.Id);
+            con = new SqlConnection();
+            con.ConnectionString = @"data source=IN5CG9214Y0Z\MSSQLSERVER01;database=ADOassessment;integrated security=true";
+
+            cmd.CommandText = "select Id from Customers where Id=@Id";
+
+            cmd.Connection = con;
+            con.Open();
+
+            object row1 = cmd.ExecuteScalar();
+            try
+            {
+                int deleteid = (int)row1;
+                if (cus.Id == deleteid)
+                {
+                    Console.WriteLine("id exists");
+
+                    cmd.CommandText = "delete from Customers where Id=@Id";
+                    int row2 = cmd.ExecuteNonQuery();
+                    if (row2 > 0)
+                    {
+                        Console.WriteLine("deleted successfully");
+                    }
+                    con.Close();
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("id does not exist:" + e.Message);
+            }
+
         }
     }
    

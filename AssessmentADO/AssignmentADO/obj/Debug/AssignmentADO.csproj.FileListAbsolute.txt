@@ -9,3 +9,14 @@ C:\Users\arelekar\source\repos\AssignmentADO\AssignmentADO\obj\Debug\AssignmentA
 C:\Users\arelekar\source\repos\AssignmentADO\AssignmentADO\obj\Debug\AssignmentADO.csproj.CopyComplete
 C:\Users\arelekar\source\repos\AssignmentADO\AssignmentADO\obj\Debug\AssignmentADO.exe
 C:\Users\arelekar\source\repos\AssignmentADO\AssignmentADO\obj\Debug\AssignmentADO.pdb
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\AssignmentADO.exe.config
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\AssignmentADO.exe
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\AssignmentADO.pdb
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\EntityFramework.dll
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\EntityFramework.xml
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\obj\Debug\AssignmentADO.csprojAssemblyReference.cache
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\obj\Debug\AssignmentADO.csproj.CopyComplete
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\obj\Debug\AssignmentADO.exe
+C:\Users\arelekar\source\repos\AssessmentADO\AssignmentADO\obj\Debug\AssignmentADO.pdb
