@@ -1,0 +1,11 @@
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\AssignmentOnEntityFramework.exe.config
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\AssignmentOnEntityFramework.exe
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\AssignmentOnEntityFramework.pdb
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\obj\Debug\AssignmentOnEntityFramework.csprojAssemblyReference.cache
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\obj\Debug\AssignmentOnEntityFramework.csproj.CopyComplete
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\obj\Debug\AssignmentOnEntityFramework.exe
+C:\Users\arelekar\source\repos\AssignmentOnEntityFramework\AssignmentOnEntityFramework\obj\Debug\AssignmentOnEntityFramework.pdb
