@@ -1,0 +1,45 @@
+﻿
+
+@{
+    ViewBag.Title = "Tv";
+}
+
+<h2>Tv</h2>
+
+
+@using (Html.BeginForm())
+{
+    <input type="text" value="search" placeholder="Enter Series Name" />
+    <br />
+    <br />
+
+    @Html.DropDownList("Language", ViewBag.Language as SelectList, "Select Language", new { @onChange = "selectedLanguage(this)" })
+    @Html.DropDownList("Genre", ViewBag.Genre as SelectList, "Select Genre", new { @onChange = "selectedGenre(this)" })
+    @Html.DropDownList("Sort", ViewBag.Sort as SelectList, "Discover", new { @onChange = "selectedSort(this)" })
+    <br />
+    <br />
+    <input type="submit" value="Search" />
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    function selectedLanguage() {
+var selval = Language.value;
+    var seltext = Language.options[Language.selectedIndex].innerHTML;
+    $('#selectedlanguage').val(seltext)
+}
+
+function selectedGenre() {
+var selval = Genre.value;
+    var seltext = Genre.options[Genre.selectedIndex].innerHTML;
+    $('#selectedGenre').val(seltext)
+}
+
+function selectedSort() {
+var selval = Sort.value;
+    var seltext = Sort.options[Sort.selectedIndex].innerHTML;
+    $('#selectedSort').val(seltext)
+}
+</script>
+
+

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<dropdown2ndpage.Models.moviename>
+
+@{
+    ViewBag.Title = "Movieslist";
+}
+
+<h2>Movieslist</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("search")
+    <br />
+    <br />
+
+
+    @Html.DropDownList("Language", ViewBag.Language as SelectList, "Select Language", new { @onChange = "selectedLanguage(this)" })
+    @Html.Hidden("selectedlanguage")
+    @*@Html.TextBox("selectedlanguage")*@
+    @Html.DropDownList("Genre", ViewBag.Genre as SelectList, "Select Genre", new { @onChange = "selectedGenre(this)" })
+    @Html.Hidden("selectedgenre")
+    @Html.DropDownList("Sort", ViewBag.Sort as SelectList, "Discover", new { @onChange = "selectedSort(this)" })
+    @Html.Hidden("selectedsort")
+    <br />
+    <br />
+    <input type="submit" value="Search" />
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    function selectedLanguage() {
+        var selval = Language.value;
+        var seltext = Language.options[Language.selectedIndex].innerHTML;
+        $('#selectedlanguage').val(seltext)
+    }
+
+    function selectedGenre() {
+        var selval = Genre.value;
+        var seltext = Genre.options[Genre.selectedIndex].innerHTML;
+        $('#selectedgenre').val(seltext)
+    }
+
+    function selectedSort() {
+        var selval = Sort.value;
+        var seltext = Sort.options[Sort.selectedIndex].innerHTML;
+        $('#selectedsort').val(seltext)
+    }
+</script>
+
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ratings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3">Records not found</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ratings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink("Details", "MovieDetails", new { id = item.Id }) |
+                  
+                </td>
+            </tr>
+        }
+
+
+    }
+
+
+</table>
