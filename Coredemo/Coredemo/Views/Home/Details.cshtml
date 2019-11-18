@@ -1,0 +1,24 @@
+﻿@model Coredemo.Models.Employee
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Employee Details";
+}
+
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card-header">
+               Name: @Model.Name
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="~/Image/download.jpg" />
+                <h4>Email:@Model.Email</h4>
+                <h4> Department:@Model.Department</h4>
+            </div>
+            <div class="card-footer">
+                <a href="~/Index.html" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+    </div>

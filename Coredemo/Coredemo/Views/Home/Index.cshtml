@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Coredemo.Models.Employee>
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title= "Employee Details";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>this is index view from home controller</h2>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+      
+        @foreach(var item in Model)
+        {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Email</td>
+        <td>@item.Department</td>
+        <td>
+            <a asp-controller="Home" asp-action="Details" asp-route-Id="@item.Id">Details</a>
+            <a href="~/Home/Details/@item.Id">View</a>
+        </td>
+    </tr>
+        }
+    </table>
+    </body>
+</html>
