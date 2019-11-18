@@ -65,16 +65,28 @@
         <dd>
             @Html.DisplayFor(model => model.Likes)
         </dd>
-        
+
     </dl>
     @using (Html.BeginForm())
     {
-        <input type="submit" name="submit" value="Like" onclick="location.href='@Url.Action("MovieDetails","Home" )'" />
-        
+        <input type="submit" name="submit" id="submit" value="Like" onclick="location.href='@Url.Action("MovieDetails","Home" )'" />
+
+        <input type="submit" name="fav" id="fav" value="favourite" onclick="location.href='@Url.Action("MovieDetails","Home" )'" />
+
     }
 </div>
 
 <p>
-   
+
     @Html.ActionLink("Back to List", "Index")
 </p>
+<script type="text/javascript"></script>
+
+
+@if (Model.likeclick == 1)
+{
+<script>
+    document.getElementById("submit").disabled = true;
+</script>
+        }
+   

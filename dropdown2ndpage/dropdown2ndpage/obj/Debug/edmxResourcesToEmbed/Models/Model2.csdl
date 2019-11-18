@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="moviesModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="favlist">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="movietitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userID" Type="Int32" />
+    <Property Name="movieID" Type="Int32" />
+    <NavigationProperty Name="usertable" Relationship="Self.FK__favlist__userID__300424B4" FromRole="favlist" ToRole="usertable" />
+  </EntityType>
+  <EntityType Name="usertable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="favlists" Relationship="Self.FK__favlist__userID__300424B4" FromRole="usertable" ToRole="favlist" />
+  </EntityType>
+  <Association Name="FK__favlist__userID__300424B4">
+    <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+    <End Role="favlist" Type="Self.favlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usertable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="favlist">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="moviesEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="favlists" EntityType="Self.favlist" />
+    <EntitySet Name="usertables" EntityType="Self.usertable" />
+    <AssociationSet Name="FK__favlist__userID__300424B4" Association="Self.FK__favlist__userID__300424B4">
+      <End Role="usertable" EntitySet="usertables" />
+      <End Role="favlist" EntitySet="favlists" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

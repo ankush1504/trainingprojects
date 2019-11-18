@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="moviesModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="favlist">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="movietitle" Type="varchar" MaxLength="50" />
+    <Property Name="userID" Type="int" />
+    <Property Name="movieID" Type="int" />
+  </EntityType>
+  <EntityType Name="usertable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__favlist__userID__300424B4">
+    <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+    <End Role="favlist" Type="Self.favlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usertable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="favlist">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="moviesModel1StoreContainer">
+    <EntitySet Name="favlist" EntityType="Self.favlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__favlist__userID__300424B4" Association="Self.FK__favlist__userID__300424B4">
+      <End Role="usertable" EntitySet="usertable" />
+      <End Role="favlist" EntitySet="favlist" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

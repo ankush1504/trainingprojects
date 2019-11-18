@@ -12,16 +12,13 @@ namespace dropdown2ndpage.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class moviename
+    public partial class favlist
     {
         public int Id { get; set; }
-        public string Language { get; set; }
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public Nullable<int> Year { get; set; }
-        public Nullable<double> Ratings { get; set; }
-        public string Photo { get; set; }
-        public Nullable<int> Likes { get; set; }
-        public int likeclick { get; set; }
+        public string movietitle { get; set; }
+        public Nullable<int> userID { get; set; }
+        public Nullable<int> movieID { get; set; }
+    
+        public virtual usertable usertable { get; set; }
     }
 }

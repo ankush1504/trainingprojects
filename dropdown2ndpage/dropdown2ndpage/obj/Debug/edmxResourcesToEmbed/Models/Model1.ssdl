@@ -16,6 +16,17 @@ warning 6002: The table/view 'movies.dbo.movienames' does not have a primary key
     <Property Name="Likes" Type="int" />
   </EntityType>
   <EntityContainer Name="moviesModelStoreContainer">
-    <EntitySet Name="movienames" EntityType="Self.movienames" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="movienames" EntityType="Self.movienames" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [movienames].[Id] AS [Id], 
+    [movienames].[Language] AS [Language], 
+    [movienames].[Title] AS [Title], 
+    [movienames].[Genre] AS [Genre], 
+    [movienames].[Year] AS [Year], 
+    [movienames].[Ratings] AS [Ratings], 
+    [movienames].[Photo] AS [Photo], 
+    [movienames].[Likes] AS [Likes]
+    FROM [dbo].[movienames] AS [movienames]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

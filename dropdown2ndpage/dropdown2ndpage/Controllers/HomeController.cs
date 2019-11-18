@@ -10,6 +10,8 @@ namespace dropdown2ndpage.Controllers
     public class HomeController : Controller
     {
         public moviesEntities mov = new moviesEntities();
+       
+
         List<SelectListItem> LanguageList = new List<SelectListItem>()
         {
             new SelectListItem{Text="English",Value="1"},
@@ -42,7 +44,8 @@ namespace dropdown2ndpage.Controllers
         public ActionResult Index()
         {
 
-
+            moviesEntities1 mov1 = new moviesEntities1();
+            usertable user = mov1.usertables.FirstOrDefault(x => x.Id == 1);
             return View();
 
         }
@@ -232,16 +235,35 @@ namespace dropdown2ndpage.Controllers
         public ActionResult MovieDetails(int id,FormCollection form)
         {
             moviesEntities ent = new moviesEntities();
+           
+            moviesEntities1 mov1 = new moviesEntities1();
+
+            usertable user = mov1.usertables.FirstOrDefault(x => x.Id == 1);
+           
+            favlist selectedfavlist = mov1.favlists.Create();
+
             moviename selectedMovie = ent.movienames.FirstOrDefault(x => x.Id == id);
+           
             string click = form["submit"];
-            if(click!=null)
+            string favclick = form["fav"];
+
+            if (click=="like")
             {
 
               
                 selectedMovie.Likes = selectedMovie.Likes + 1;
                 
+                selectedMovie.likeclick = 1;
             
                 ent.SaveChanges();
+            }
+            if(favclick=="favourite")
+            {
+
+                selectedfavlist.movietitle = selectedMovie.Title;
+                selectedfavlist.userID = user.Id;
+                mov1.favlists.Add(selectedfavlist);
+                mov1.SaveChanges();
             }
 
             return View(selectedMovie);            

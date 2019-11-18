@@ -12,16 +12,19 @@ namespace dropdown2ndpage.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class moviename
+    public partial class usertable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public usertable()
+        {
+            this.favlists = new HashSet<favlist>();
+        }
+    
         public int Id { get; set; }
-        public string Language { get; set; }
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public Nullable<int> Year { get; set; }
-        public Nullable<double> Ratings { get; set; }
-        public string Photo { get; set; }
-        public Nullable<int> Likes { get; set; }
-        public int likeclick { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<favlist> favlists { get; set; }
     }
 }
