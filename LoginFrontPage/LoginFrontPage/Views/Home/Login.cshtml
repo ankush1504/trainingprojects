@@ -6,7 +6,13 @@
 
 }
 <head>
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+    <style type="text/css">
+        a {
+            /*background-image: url('/images/CommonWallpaper.jpg');*/
+           color:white;
+        }
+    </style>
 </head>
 
     <body>
@@ -35,8 +41,8 @@
             </div>
         </div>
         <input type="submit" value="Login" class="btn-primary" style="float:center"/>
-        <h4 style="color:white;"><b>@Html.ActionLink("Sign Up", "Register", "Home")</b></h4>
-        <h4 style="color:white;"><b>@Html.ActionLink("Forgot password", "ForgetPassword", "Home")</b></h4>
+        <h4><b>@Html.ActionLink("Sign Up", "Register", "Home" )</b></h4>
+        <h4><b>@Html.ActionLink("Forgot password", "ForgetPassword", "Home")</b></h4>
     </div>
      
 

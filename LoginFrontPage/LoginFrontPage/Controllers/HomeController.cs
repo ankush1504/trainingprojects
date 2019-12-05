@@ -57,20 +57,17 @@ namespace LoginFrontPage.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ResetPassword(FormCollection form)
+        public ActionResult ResetPassword(FormCollection form,Corporate corp)
         {
 
             string email1 = TempData["email"].ToString();
-            string pass1 = form["pass"];
-            string pass2 = form["conpass"];
             Corporate user = ent.Corporates.Where(x => x.Email == email1).FirstOrDefault();
-            if (ModelState.IsValid)
-            {
-                if (user.otp == form["otp"])
+            
+                if (user.otp == corp.otp)
                 {
-                    if (pass1 == pass2)
+                    if (corp.Password == corp.ConfirmPassword)
                     {
-                        user.Password = pass1;
+                        user.Password = corp.Password;
                         ent.SaveChanges();
                         return RedirectToAction("Index");
                     }
@@ -86,7 +83,7 @@ namespace LoginFrontPage.Controllers
                     
                 }
 
-            }
+            
 
             TempData.Keep("email");
             return View();
@@ -135,7 +132,7 @@ namespace LoginFrontPage.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(FormCollection form, [Bind(Include = "Id,FullName,Gender,DOB,Email,Mobile,GradDegree,GradPerc,GradBranch,GradPassesYear,PrevCompany,ExpYears,YearSalary,TechStack1,TechStack2,TechStack3,Password,ConfirmPassword,otp")]Corporate corp)
+        public ActionResult Register(FormCollection form, [Bind(Include = "Id,FullName,Gender,DOB,Email,Mobile,GradDegree,GradPerc,GradBranch,GradPassesYear,PrevCompany,ExpYears,YearSalary,TechStack1,TechStack2,TechStack3,Password,ConfirmPassword,Resume,file")]Corporate corp, HttpPostedFileBase file)
         {
             bool chkjava = false;
             bool chkpython = false;
@@ -155,17 +152,42 @@ namespace LoginFrontPage.Controllers
             if (chkcsharp) { chkcsharpvalue = form["tech3"];
                 corp.TechStack3 = chkcsharpvalue;
             }
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    var fileName = System.IO.Path.GetFileName(file.FileName);
+                    var path = System.IO.Path.Combine(Server.MapPath("~/App_Data/Uploads"), fileName);
+                    corp.Resume = fileName.ToString();
+                    file.SaveAs(path);
+
+                }
+
+            }
+            catch (Exception ex)
+            { 
+                corp.Resume = "No file";
+                
+            }
+
+
 
             ViewBag.Degree = DegreeList;
             string degree = form["selecteddegree"];
             corp.GradDegree = degree;
-         
+            if (corp.Password == corp.ConfirmPassword)
+            {
                 if (ModelState.IsValid)
                 {
                     ent.Corporates.Add(corp);
                     ent.SaveChanges();
                     return RedirectToAction("Index");
                 }
+            }
+            else
+            {
+                ViewBag.Conpass = "fail";
+            }
             
  
 
@@ -247,6 +269,8 @@ namespace LoginFrontPage.Controllers
             }
             return NewPassword;
         }
+
+     
 
 
 

@@ -13,6 +13,7 @@ namespace LoginFrontPage.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public class CorporateMetaData
     {
@@ -48,11 +49,17 @@ namespace LoginFrontPage.Models
         [Range(0, 20)]
         public Nullable<int> ExpYears { get; set; }
 
+
+
         [Required]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,14}$", ErrorMessage = "Enter valid Password")]
         public string Password { get; set; }
-        [Compare("Password")]
-        public string ConfirmPassword { get; set; }
+
+        public HttpPostedFileBase file { get; set; }
+        //[NotMapped]
+        //[Required]
+        //[Compare("Password")]
+        //public string ConfirmPassword { get; set; }
 
     }
     [MetadataType(typeof(CorporateMetaData))]
@@ -74,7 +81,10 @@ namespace LoginFrontPage.Models
         public string PrevCompany { get; set; }
         public Nullable<int> ExpYears { get; set; }
         public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
         public string otp { get; set; }
+        public string ConfirmPassword { get; set; }
+        public HttpPostedFileBase file { get; set; }
+        public string Resume { get; set; }
+        
     }
 }

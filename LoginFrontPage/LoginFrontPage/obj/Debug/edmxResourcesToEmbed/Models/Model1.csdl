@@ -21,6 +21,7 @@
     <Property Name="ExpYears" Type="Int32" />
     <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="otp" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Resume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="UserDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Corporates" EntityType="Self.Corporate" />

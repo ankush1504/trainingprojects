@@ -21,6 +21,7 @@
     <Property Name="ExpYears" Type="int" />
     <Property Name="Password" Type="varchar" MaxLength="20" />
     <Property Name="otp" Type="varchar" MaxLength="8" />
+    <Property Name="Resume" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="UserDatabaseModelStoreContainer">
     <EntitySet Name="Corporate" EntityType="Self.Corporate" Schema="dbo" store:Type="Tables" />

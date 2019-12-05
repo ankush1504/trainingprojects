@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Corporates">
       <EntityTypeMapping TypeName="UserDatabaseModel.Corporate">
         <MappingFragment StoreEntitySet="Corporate">
+          <ScalarProperty Name="Resume" ColumnName="Resume" />
           <ScalarProperty Name="otp" ColumnName="otp" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />

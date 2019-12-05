@@ -26,6 +26,7 @@
           <Property Name="ExpYears" Type="int" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
           <Property Name="otp" Type="varchar" MaxLength="8" />
+          <Property Name="Resume" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="UserDatabaseModelStoreContainer">
           <EntitySet Name="Corporate" EntityType="Self.Corporate" Schema="dbo" store:Type="Tables" />
@@ -55,6 +56,7 @@
           <Property Name="ExpYears" Type="Int32" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="otp" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Resume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="UserDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Corporates" EntityType="Self.Corporate" />
@@ -68,6 +70,7 @@
           <EntitySetMapping Name="Corporates">
             <EntityTypeMapping TypeName="UserDatabaseModel.Corporate">
               <MappingFragment StoreEntitySet="Corporate">
+                <ScalarProperty Name="Resume" ColumnName="Resume" />
                 <ScalarProperty Name="otp" ColumnName="otp" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
