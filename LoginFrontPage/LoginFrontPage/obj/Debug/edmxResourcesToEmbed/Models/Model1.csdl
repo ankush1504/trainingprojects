@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UserDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Corporate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="Int64" />
+    <Property Name="GradPerc" Type="Double" />
+    <Property Name="GradDegree" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="GradBranch" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="GradPassesYear" Type="Int32" />
+    <Property Name="TechStack1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TechStack2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TechStack3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PrevCompany" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ExpYears" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="otp" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="UserDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Corporates" EntityType="Self.Corporate" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,45 @@
+﻿@model LoginFrontPage.Models.Corporate
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+
+}
+<head>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+
+    <body>
+
+        <h2 style="float:initial">Login</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control",Type="password"} })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <input type="submit" value="Login" class="btn-primary" style="float:center"/>
+        <h4 style="color:white;"><b>@Html.ActionLink("Sign Up", "Register", "Home")</b></h4>
+        <h4 style="color:white;"><b>@Html.ActionLink("Forgot password", "ForgetPassword", "Home")</b></h4>
+    </div>
+     
+
+}
+        </body>
+

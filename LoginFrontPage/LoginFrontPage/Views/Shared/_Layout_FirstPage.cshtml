@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" style="color:cornflowerblue font-family:Playbill;height:12%">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("DXC Test", "FirstPage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "FirstPage", "Home")</li>
+            </ul>
+            <ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <input type="button" class="btn btn-default" value="Login" onclick="location.href='@Url.Action("Login", "Home")'"></input>
+                    <input type="button" class="btn btn-default" value="Sign In" onclick="location.href='@Url.Action("Register", "Home")'"></input>
+                </form>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div style="
+        background-image: url('../../Common/c.jpg');height:550px
+">
+    @RenderBody()
+    <hr />
+    <footer>
+    </footer>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+
+    </body>
+</html>

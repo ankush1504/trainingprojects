@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UserDatabaseModelStoreContainer" CdmEntityContainer="UserDatabaseEntities">
+    <EntitySetMapping Name="Corporates">
+      <EntityTypeMapping TypeName="UserDatabaseModel.Corporate">
+        <MappingFragment StoreEntitySet="Corporate">
+          <ScalarProperty Name="otp" ColumnName="otp" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="GradPerc" ColumnName="GradPerc" />
+          <ScalarProperty Name="GradDegree" ColumnName="GradDegree" />
+          <ScalarProperty Name="GradBranch" ColumnName="GradBranch" />
+          <ScalarProperty Name="GradPassesYear" ColumnName="GradPassesYear" />
+          <ScalarProperty Name="TechStack1" ColumnName="TechStack1" />
+          <ScalarProperty Name="TechStack2" ColumnName="TechStack2" />
+          <ScalarProperty Name="TechStack3" ColumnName="TechStack3" />
+          <ScalarProperty Name="PrevCompany" ColumnName="PrevCompany" />
+          <ScalarProperty Name="ExpYears" ColumnName="ExpYears" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
